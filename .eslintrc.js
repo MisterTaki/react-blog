@@ -17,7 +17,6 @@ module.exports = {
   },
   // custom rules here
   'rules': {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     'no-plusplus': ["error", { "allowForLoopAfterthoughts": true }],
     'max-len': 0,
     "jsx-a11y/href-no-hash": "off",
