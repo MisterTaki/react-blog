@@ -22,17 +22,22 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'eslint-loader',
         enforce: 'pre',
         include: [entryDir],
-        options: {
-          formatter: require('eslint-friendly-formatter'),
-        },
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              formatter: require('eslint-friendly-formatter'),
+            },
+          },
+          'stylelint-custom-processor-loader',
+        ],
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
         include: [entryDir],
+        loader: 'babel-loader',
         options: {
           cacheDirectory: true,
         },
