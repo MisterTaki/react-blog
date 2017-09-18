@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
 
+/* eslint-disable react/jsx-filename-extension */
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
