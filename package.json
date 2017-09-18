@@ -1,9 +1,19 @@
 {
   "name": "react-blog",
   "version": "0.0.1",
-  "description": "A blog with react.js",
-  "private": false,
   "author": "GaoQi <taki.gaoqi@outlook.com>",
+  "description": "A blog with react.js",
+  "keywords": [
+    "react",
+    "react-router",
+    "react-hot-loader",
+    "styled-components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MisterTaki/react-blog"
+  },
+  "private": false,
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
