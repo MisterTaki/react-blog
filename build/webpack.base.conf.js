@@ -1,13 +1,7 @@
 var path = require('path');
 var config = require('./config');
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir);
-}
-
-function assetsPath (_path) {
-  return path.posix.join(config.build.assetsSubDirectory, _path)
-}
+var entryDir = path.join(__dirname, '..', 'src');
 
 module.exports = {
   entry: {
@@ -21,7 +15,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': resolve('src'),
+      '@': entryDir,
     },
   },
   module: {
@@ -30,7 +24,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src')],
+        include: [entryDir],
         options: {
           formatter: require('eslint-friendly-formatter'),
         },
@@ -38,7 +32,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: [resolve('src')],
+        include: [entryDir],
         options: {
           cacheDirectory: true,
         },
@@ -48,7 +42,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: assetsPath('img/[name].[hash:7].[ext]'),
+          name: path.posix.join(config.build.assetsSubDirectory, 'img/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -56,7 +50,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: assetsPath('media/[name].[hash:7].[ext]'),
+          name: path.posix.join(config.build.assetsSubDirectory, 'media/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -64,7 +58,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: assetsPath('fonts/[name].[hash:7].[ext]'),
+          name: path.posix.join(config.build.assetsSubDirectory, 'fonts/[name].[hash:7].[ext]'),
         },
       },
     ],
