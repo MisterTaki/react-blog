@@ -23,12 +23,10 @@ export default injectGlobal`
     position: relative;
     margin: 0;
     background: ${base.backgroundColor};
-
-    /* font-family: @global-font-family;
-    font-weight: @global-font-weight;
-    line-height: @global-line-height;
-    color: @global-text-color;
-    font-size: @global-font-size; */
+    font-family: ${base.fontFamily};
+    font-size: ${base.fontSize};
+    font-weight: ${base.fontWeight};
+    line-height: ${base.lineHeight};
     color: ${base.textColor};
   }
 
@@ -82,8 +80,7 @@ export default injectGlobal`
   h4,
   h5,
   h6 {
-    /* margin: 0 0 @global-margin-vertical 0;
-    font-weight: @global-heading-font-weight; */
+    margin: 0;
     font-size: 100%;
   }
 
@@ -93,15 +90,6 @@ export default injectGlobal`
 
   h2 {
     font-size: 1.25em;
-  }
-
-  * + h1,
-  * + h2,
-  * + h3,
-  * + h4,
-  * + h5,
-  * + h6 {
-    /* margin-top: @global-heading-margin-top; */
   }
 
   ul,

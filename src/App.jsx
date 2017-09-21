@@ -3,11 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import logo from './assets/logo.svg';
 import './style/global';
 
-
-const Title = styled.h1`
-  font-size: 28px;
-`;
-
 const Header = styled.div`
   background-color: black;
   height: 150px;
@@ -35,7 +30,7 @@ export default function () {
   return (
     <Header>
       <Logo src={logo} alt="logo" />
-      <Title>Welcome to React-Blog</Title>
+      <h1>Welcome to React-Blog</h1>
     </Header>
   );
 }
