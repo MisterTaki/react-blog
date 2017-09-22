@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { color } from './style/variables';
+import { common } from './style/colors';
 import logo from './assets/logo.svg';
 import './style/global';
 
 const Header = styled.div`
-  background-color: ${color.black};
+  background-color: ${common.black};
   height: 200px;
   padding: 20px;
-  color: ${color.white};
+  color: ${common.white};
   text-align: center;
 `;
 

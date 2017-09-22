@@ -1,5 +1,6 @@
 import { injectGlobal } from 'styled-components';
-import { font, color } from './variables';
+import { font } from './variables';
+import { common } from './colors';
 
 export default injectGlobal`
   *,
@@ -22,12 +23,12 @@ export default injectGlobal`
   body {
     position: relative;
     margin: 0;
-    background: ${color.white};
+    background: ${common.white};
     font-family: ${font.fontFamily};
     font-size: ${font.fontSize};
     font-weight: ${font.fontWeight};
     line-height: ${font.lineHeight};
-    color: ${color.black};
+    color: ${common.black};
   }
 
   figcaption,
@@ -45,19 +46,19 @@ export default injectGlobal`
   }
 
   a {
-    color: ${color.black};
+    color: ${common.black};
     background-color: transparent;
     text-decoration-skip: objects;
   }
 
   a:focus {
-    color: ${color.black};
+    color: ${common.black};
     outline: thin dotted;
   }
 
   a:active,
   a:hover {
-    color: ${color.black};
+    color: ${common.black};
     outline: 0;
   }
 
