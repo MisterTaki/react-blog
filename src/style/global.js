@@ -1,5 +1,5 @@
 import { injectGlobal } from 'styled-components';
-import { base } from './theme';
+import { font, color } from './variables';
 
 export default injectGlobal`
   *,
@@ -14,7 +14,7 @@ export default injectGlobal`
   }
 
   html {
-    font-size: 10px;
+    font-size: ${font.htmlFontSize};
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }
@@ -22,12 +22,12 @@ export default injectGlobal`
   body {
     position: relative;
     margin: 0;
-    background: ${base.backgroundColor};
-    font-family: ${base.fontFamily};
-    font-size: ${base.fontSize};
-    font-weight: ${base.fontWeight};
-    line-height: ${base.lineHeight};
-    color: ${base.textColor};
+    background: ${color.white};
+    font-family: ${font.fontFamily};
+    font-size: ${font.fontSize};
+    font-weight: ${font.fontWeight};
+    line-height: ${font.lineHeight};
+    color: ${color.black};
   }
 
   figcaption,
@@ -45,33 +45,20 @@ export default injectGlobal`
   }
 
   a {
-    color: ${base.linkColor};
+    color: ${color.black};
     background-color: transparent;
     text-decoration-skip: objects;
   }
 
   a:focus {
-    color: ${base.linkHoverColor};
+    color: ${color.black};
     outline: thin dotted;
   }
 
   a:active,
   a:hover {
-    color: ${base.linkHoverColor};
+    color: ${color.black};
     outline: 0;
-  }
-
-  b,
-  strong {
-    font-weight: bolder;
-  }
-
-  small {
-    font-size: 80%;
-  }
-
-  img {
-    border-style: none;
   }
 
   h1,
@@ -95,5 +82,18 @@ export default injectGlobal`
   ul,
   ol {
     list-style: none;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  img {
+    border-style: none;
   }
 `;
