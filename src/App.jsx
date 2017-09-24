@@ -1,5 +1,11 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+} from 'react-router-dom';
+
 import { common } from './style/colors';
 import logo from './assets/logo.svg';
 import './style/global';
@@ -27,11 +33,28 @@ const Logo = styled.img`
   height: 80px;
 `;
 
-export default function () {
-  return (
+const Home = () => (
+  <div>
     <Header>
       <Logo src={logo} alt="logo" />
       <h1>Welcome to React-Blog</h1>
     </Header>
+    <Link to="/">Home</Link>
+    <Link to="/article">Article</Link>
+  </div>
+);
+
+const Article = () => (
+  <h1>Articel</h1>
+);
+
+export default function () {
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/article" component={Article} />
+      </div>
+    </Router>
   );
 }
