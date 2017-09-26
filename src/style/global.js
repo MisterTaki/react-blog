@@ -3,6 +3,10 @@ import { font } from './variables';
 import { common } from './colors';
 
 export default injectGlobal`
+  #blog {
+    height: 100%;
+  }
+
   *,
   *::before,
   *::after {
@@ -48,18 +52,15 @@ export default injectGlobal`
   a {
     color: ${common.black};
     background-color: transparent;
+    text-decoration: none;
     text-decoration-skip: objects;
-  }
 
-  a:focus {
-    color: ${common.black};
-    outline: thin dotted;
-  }
-
-  a:active,
-  a:hover {
-    color: ${common.black};
-    outline: 0;
+    &:focus,
+    &:active,
+    &:hover {
+      color: ${common.black};
+      outline: 0;
+    }
   }
 
   h1,
