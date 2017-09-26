@@ -1,7 +1,7 @@
 export default {
   fontFamily: '"Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif',
   htmlSize: '16px',
-  fontSize: '1.6rem',
+  fontSize: '1rem',
   fontWeight: 'normal',
   lineHeight: 1.6,
 };
