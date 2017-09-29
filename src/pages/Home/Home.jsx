@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: ${rem('36px')};
+  font-size: ${rem('48px')};
   cursor: default;
 `;
 
