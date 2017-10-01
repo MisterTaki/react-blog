@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { rem, clearFix } from 'polished';
 import { common } from '@/style/colors';
 import logo from '@/assets/logo.png';
+import NavLink from './NavLink';
 
 const RelativeHeader = styled.header`
   position: relative;
@@ -51,23 +52,6 @@ const LinkWrapper = styled.div`
   align-items: center;
 `;
 
-const StyledNavLink = styled(NavLink)`
-  display: block;
-  height: ${'36px'};
-  line-height: ${'36px'};
-  margin: 0 ${rem('10px')};
-  font-size: ${rem('16px')};
-  color: ${common.darkBlack};
-
-  &:hover {
-    border-bottom: 3px solid ${common.theme};
-  }
-
-  &.active {
-    border-bottom: 3px solid ${common.theme};
-  }
-`;
-
 export default function () {
   return (
     <RelativeHeader>
@@ -78,12 +62,12 @@ export default function () {
             <LogoText>Blog</LogoText>
           </LogoLink>
           <LinkWrapper>
-            <StyledNavLink to="/" exact>Home</StyledNavLink>
-            <StyledNavLink to="/archives">Archives</StyledNavLink>
-            <StyledNavLink to="/tags">Tags</StyledNavLink>
-            <StyledNavLink to="/projects">Projects</StyledNavLink>
-            <StyledNavLink to="/comments">Comments</StyledNavLink>
-            <StyledNavLink to="/About">About</StyledNavLink>
+            <NavLink to="/" exact>Home</NavLink>
+            <NavLink to="/archives">Archives</NavLink>
+            <NavLink to="/tags">Tags</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
+            <NavLink to="/comments">Comments</NavLink>
+            <NavLink to="/About">About</NavLink>
           </LinkWrapper>
         </HeaderWrapper>
       </FixedHeader>
