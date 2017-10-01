@@ -1,4 +1,5 @@
 export default {
+  theme: '#42b983',
   black: '#000',
   white: '#fff',
   transparent: 'rgba(0, 0, 0, 0)',
