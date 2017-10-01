@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import { Home, Resume, Articles, Projects } from './pages';
+import { Header } from './components/common';
+import { Home, Archives, Tags, Projects, Comments, About } from './containers';
 
 import './style/global';
 
@@ -13,10 +14,15 @@ export default function () {
   return (
     <Router>
       <Blog>
-        <Route exact path="/" component={Home} />
-        <Route path="/resume" component={Resume} />
-        <Route path="/articles" component={Articles} />
-        <Route path="/projects" component={Projects} />
+        <Header />
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/archives" component={Archives} />
+          <Route path="/tags" component={Tags} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/comments" component={Comments} />
+          <Route path="/about" component={About} />
+        </div>
       </Blog>
     </Router>
   );
