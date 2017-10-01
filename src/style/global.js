@@ -50,7 +50,6 @@ export default injectGlobal`
   }
 
   a {
-    color: ${common.black};
     background-color: transparent;
     text-decoration: none;
     text-decoration-skip: objects;
@@ -58,7 +57,6 @@ export default injectGlobal`
     &:focus,
     &:active,
     &:hover {
-      color: ${common.black};
       outline: 0;
     }
   }
