@@ -3,38 +3,40 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { rem, clearFix } from 'polished';
 import { common } from '@/style/colors';
+import { zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';
 import NavLink from './NavLink';
 
-const RelativeHeader = styled.header`
+const HeaderContainer = styled.header`
   position: relative;
-  height: 60px;
+  height: ${rem('60px')};
+  flex: 0 0 auto;
 `;
 
-const FixedHeader = styled.div`
+const Header = styled.div`
   position: fixed;
   width: 100%;
-  background-color: ${common.darkWhite};
   box-shadow: 0 0 3px rgba(14, 14, 14, 0.26);
+  z-index: ${zIndex.header};
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.section`
   max-width: 1200px;
-  height: 60px;
+  height: ${rem('60px')};
   margin: 0 auto;
   ${clearFix()};
 `;
 
 const LogoLink = styled(Link)`
   float: left;
-  height: 60px;
+  height: ${rem('60px')};
   display: flex;
   align-items: center;
 `;
 
 const Logo = styled.div`
-  height: 40px;
-  width: 40px;
+  height: ${rem('46px')};
+  width: ${rem('46px')};
   margin-right: 6px;
   background: url(${logo}) no-repeat center;
   background-size: contain;
@@ -45,32 +47,32 @@ const LogoText = styled.span`
   color: ${common.theme};
 `;
 
-const LinkWrapper = styled.div`
+const NavList = styled.nav`
   float: right;
-  height: 60px;
+  height: ${rem('60px')};
   display: flex;
   align-items: center;
 `;
 
 export default function () {
   return (
-    <RelativeHeader>
-      <FixedHeader>
+    <HeaderContainer>
+      <Header>
         <HeaderWrapper>
           <LogoLink to="/">
             <Logo />
             <LogoText>Blog</LogoText>
           </LogoLink>
-          <LinkWrapper>
+          <NavList>
             <NavLink to="/" exact>Home</NavLink>
             <NavLink to="/archives">Archives</NavLink>
             <NavLink to="/tags">Tags</NavLink>
             <NavLink to="/projects">Projects</NavLink>
             <NavLink to="/comments">Comments</NavLink>
             <NavLink to="/About">About</NavLink>
-          </LinkWrapper>
+          </NavList>
         </HeaderWrapper>
-      </FixedHeader>
-    </RelativeHeader>
+      </Header>
+    </HeaderContainer>
   );
 }
