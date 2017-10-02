@@ -1,1 +1,1 @@
-export * as Layout from './Layout';
+export * as Blog from './Blog';

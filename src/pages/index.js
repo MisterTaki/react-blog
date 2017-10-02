@@ -1,4 +1,2 @@
-export Home from './Home';
-export Resume from './Resume';
-export Articles from './Articles';
-export Projects from './Projects';
+export Blog from './Blog';
+export NotFound from './NotFound';

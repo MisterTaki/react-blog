@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function () {
   return (
-    <h1>Projects</h1>
+    <h1>NotFound</h1>
   );
 }

@@ -64,12 +64,12 @@ export default function () {
             <LogoText>Blog</LogoText>
           </LogoLink>
           <NavList>
-            <NavLink to="/" exact>Home</NavLink>
-            <NavLink to="/archives">Archives</NavLink>
-            <NavLink to="/tags">Tags</NavLink>
-            <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/comments">Comments</NavLink>
-            <NavLink to="/About">About</NavLink>
+            <NavLink to="/blog" exact>Home</NavLink>
+            <NavLink to="/blog/archives">Archives</NavLink>
+            <NavLink to="/blog/tags">Tags</NavLink>
+            <NavLink to="/blog/projects">Projects</NavLink>
+            <NavLink to="/blog/comments">Comments</NavLink>
+            <NavLink to="/blog/About">About</NavLink>
           </NavList>
         </HeaderWrapper>
       </Header>
