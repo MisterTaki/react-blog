@@ -16,6 +16,7 @@ const HeaderContainer = styled.header`
 const Header = styled.div`
   position: fixed;
   width: 100%;
+  background-color: ${common.white};
   box-shadow: 0 0 3px rgba(14, 14, 14, 0.26);
   z-index: ${zIndex.header};
 `;
@@ -24,6 +25,7 @@ const HeaderWrapper = styled.section`
   max-width: 1200px;
   height: ${rem('60px')};
   margin: 0 auto;
+  padding: 0 ${rem('10px')};
   ${clearFix()};
 `;
 

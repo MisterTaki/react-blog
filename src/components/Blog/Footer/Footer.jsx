@@ -16,7 +16,6 @@ const FooterWrapper = styled.section`
 `;
 
 const Copyright = styled.p`
-  margin: 0;
   font-size: ${rem('14px')};
   text-align: center;
   color: ${grey[400]};
