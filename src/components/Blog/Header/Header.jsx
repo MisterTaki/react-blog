@@ -59,7 +59,7 @@ export default function () {
     <HeaderContainer>
       <Header>
         <HeaderWrapper>
-          <LogoLink to="/">
+          <LogoLink to="/blog">
             <Logo />
             <LogoText>Blog</LogoText>
           </LogoLink>
