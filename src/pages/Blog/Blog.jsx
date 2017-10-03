@@ -3,32 +3,33 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { Header, Main, Footer } from '@/components/Blog';
-import { Home, Archives, Tags, Projects, Comments, About } from '@/containers/Blog';
+import { blog } from '@/router';
 
-const BlogContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
-
-const Blog = ({ match }) => {
+const Blog = ({ match, location, className }) => {
   const { path, isExact } = match;
+  const { pathname } = location;
+  const blogRouter = blog(path);
+
   return (
-    <BlogContainer>
-      <Header path={path} isExact={isExact} />
+    <div className={className}>
+      <Header path={path} isExact={isExact} pathname={pathname} />
       <Main>
         <Switch>
-          <Route exact path={path} component={Home} />
-          <Route path={`${path}/archives`} component={Archives} />
-          <Route path={`${path}/tags`} component={Tags} />
-          <Route path={`${path}/Projects`} component={Projects} />
-          <Route path={`${path}/comments`} component={Comments} />
-          <Route path={`${path}/about`} component={About} />
+          {
+            Object.keys(blog(path)).map(item => (
+              <Route
+                key={item}
+                path={item}
+                component={blogRouter[item].component}
+                exact={blogRouter[item].isExact}
+              />
+            ))
+          }
           <Redirect to="/404" />
         </Switch>
       </Main>
       <Footer />
-    </BlogContainer>
+    </div>
   );
 };
 
@@ -37,6 +38,16 @@ Blog.propTypes = {
     path: PropTypes.string,
     isExact: PropTypes.bool,
   }).isRequired,
+
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+
+  className: PropTypes.string.isRequired,
 };
 
-export default Blog;
+export default styled(Blog)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
