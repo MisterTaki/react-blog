@@ -10,8 +10,8 @@ import { blog } from '@/router';
 import logo from '@/assets/logo.png';
 
 const Header = ({ path, isExact, pathname, className }) => {
-  const blogRouter = blog(path);
-  const activeRouter = blogRouter[pathname];
+  const router = blog(path);
+  const activeRouter = router[pathname];
   const title = activeRouter ? activeRouter.label : '';
   const subTitle = activeRouter ? activeRouter.description : '';
 
@@ -25,13 +25,13 @@ const Header = ({ path, isExact, pathname, className }) => {
           </Link>
           <nav className="nav-list">
             {
-              Object.keys(blogRouter).map(item => (
+              Object.keys(router).map(item => (
                 <NavLink
                   className="nav-link"
                   key={item}
                   to={item}
-                  exact={blogRouter[item].isExact}
-                >{ blogRouter[item].label }</NavLink>
+                  exact={router[item].isExact}
+                >{ router[item].label }</NavLink>
               ))
             }
           </nav>
@@ -66,12 +66,13 @@ export default styled(Header)`
   text-align: center;
 
   .fixed-container {
-    position: fixed;
+    position: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? 'fixed' : 'absolute')};
     top: 0;
     left: 0;
     width: 100%;
-    background-color: ${({ isExact }) => (isExact ? common.white : '')};
-    box-shadow: 0 0 3px rgba(14, 14, 14, 0.26);
+    background-color: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? common.white : '')};
+    box-shadow: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
+    transition: background 0.4s;
     z-index: ${zIndex.header};
   }
 
@@ -100,7 +101,7 @@ export default styled(Header)`
 
   .logo-text {
     font-size: ${rem('24px')};
-    color: ${({ isExact }) => (isExact ? common.theme : common.white)};
+    color: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? common.theme : common.white)};
   }
 
   .nav-list {
@@ -116,7 +117,7 @@ export default styled(Header)`
     line-height: ${'36px'};
     margin: 0 ${rem('10px')};
     font-size: ${rem('16px')};
-    color: ${({ isExact }) => (isExact ? common.darkBlack : common.white)};
+    color: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? common.darkBlack : common.white)};
 
     &:hover {
       border-bottom: 3px solid ${common.theme};
