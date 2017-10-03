@@ -5,81 +5,26 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { common, grey, orange } from '@/style/colors';
 
-const Wrapper = styled.article`
-  padding: ${rem('10px')} 0;
-  margin: ${rem('10px')} 0;
-`;
-
-const TitleLink = styled(Link)`
-  display: inline-block;
-`;
-
-const Title = styled.h2`
-  height: ${rem('42px')};
-  font-size: ${rem('26px')};
-  color: ${common.darkBlack};
-
-  &:hover {
-    border-bottom: 2px solid ${common.theme};
-  }
-`;
-
-const Date = styled.p`
-  margin: ${rem('10px')} 0;
-  font-size: ${rem('14px')};
-  color: ${grey[500]};
-`;
-
-const TagList = styled.div`
-  margin: ${rem('10px')} -${rem('5px')};
-`;
-
-const Tag = styled(Link)`
-  display: inline-block;
-  padding: 0 ${rem('10px')};
-  margin: 0 ${rem('5px')};
-  background-color: ${grey[50]};
-  font-size: ${rem('14px')};
-  color: ${orange[500]};
-`;
-
-const Summary = styled.p`
-  margin: ${rem('10px')} 0;
-  font-size: ${rem('16px')};
-  color: ${common.darkBlack};
-  text-align: justify;
-`;
-
-const More = styled(Link)`
-  display: inline-block;
-  font-size: ${rem('14px')};
-  font-weight: bold;
-  color: ${common.theme};
-  transition: all 0.4s ease;
-
-  &:hover {
-    transform: translateX(10px);
-  }
-`;
-
-const ArticleCard = ({ title, date, tags, summary, link }) => (
-  <Wrapper>
-    <TitleLink to={link}>
-      <Title>{title}</Title>
-    </TitleLink>
-    <Date>{date}</Date>
-    <TagList>
+const ArticleCard = ({ title, date, tags, summary, link, className }) => (
+  <div className={className}>
+    <Link className="title-link" to={link}>
+      <h1 className="title">{ title }</h1>
+    </Link>
+    <p className="date">{ date }</p>
+    <div className="tag-list">
       {
         tags.map(item => (
-          <Tag key={item.id} to={item.link}>
-            {item.value}
-          </Tag>
+          <Link
+            className="tag-link"
+            key={item.id}
+            to={item.link}
+          >{ item.value }</Link>
         ))
       }
-    </TagList>
-    <Summary>{summary}</Summary>
-    <More to={link}>Read More</More>
-  </Wrapper>
+    </div>
+    <p className="summary">{ summary }</p>
+    <Link className="more" to={link}>Read More</Link>
+  </div>
 );
 
 ArticleCard.propTypes = {
@@ -88,6 +33,62 @@ ArticleCard.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.object).isRequired,
   summary: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
-export default ArticleCard;
+export default styled(ArticleCard)`
+  padding: ${rem('10px')} 0;
+  margin: ${rem('10px')} 0;
+
+  .title-link {
+    display: inline-block;
+  }
+
+  .title {
+    height: ${rem('42px')};
+    font-size: ${rem('26px')};
+    color: ${common.darkBlack};
+
+    &:hover {
+      border-bottom: 2px solid ${common.theme};
+    }
+  }
+
+  .date {
+    margin: ${rem('10px')} 0;
+    font-size: ${rem('14px')};
+    color: ${grey[500]};
+  }
+
+  .tag-list {
+    margin: ${rem('10px')} -${rem('5px')};
+  }
+
+  .tag-link {
+    display: inline-block;
+    padding: 0 ${rem('10px')};
+    margin: 0 ${rem('5px')};
+    background-color: ${grey[50]};
+    font-size: ${rem('14px')};
+    color: ${orange[500]};
+  }
+
+  .summary {
+    margin: ${rem('10px')} 0;
+    font-size: ${rem('16px')};
+    color: ${common.darkBlack};
+    text-align: justify;
+  }
+
+  .more {
+    display: inline-block;
+    font-size: ${rem('14px')};
+    font-weight: bold;
+    color: ${common.theme};
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+  }
+`;
