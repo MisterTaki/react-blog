@@ -8,17 +8,17 @@ export default function (path) {
       isExact: true,
       component: Home,
     },
-    [`${path}/archives`]: {
-      label: 'Archives',
-      description: '文章归档',
-      isExact: false,
-      component: Archives,
-    },
     [`${path}/tags`]: {
       label: 'Tags',
       description: '标签检索',
       isExact: false,
       component: Tags,
+    },
+    [`${path}/archives`]: {
+      label: 'Archives',
+      description: '文章归档',
+      isExact: false,
+      component: Archives,
     },
     [`${path}/projects`]: {
       label: 'Projects',
