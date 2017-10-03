@@ -11,27 +11,31 @@ const BlogContainer = styled.div`
   height: 100%;
 `;
 
-const Blog = ({ match }) => (
-  <BlogContainer>
-    <Header />
-    <Main>
-      <Switch>
-        <Route exact path={match.path} component={Home} />
-        <Route path={`${match.path}/archives`} component={Archives} />
-        <Route path={`${match.path}/tags`} component={Tags} />
-        <Route path={`${match.path}/Projects`} component={Projects} />
-        <Route path={`${match.path}/comments`} component={Comments} />
-        <Route path={`${match.path}/about`} component={About} />
-        <Redirect to="/404" />
-      </Switch>
-    </Main>
-    <Footer />
-  </BlogContainer>
-);
+const Blog = ({ match }) => {
+  const { path, isExact } = match;
+  return (
+    <BlogContainer>
+      <Header path={path} isExact={isExact} />
+      <Main>
+        <Switch>
+          <Route exact path={path} component={Home} />
+          <Route path={`${path}/archives`} component={Archives} />
+          <Route path={`${path}/tags`} component={Tags} />
+          <Route path={`${path}/Projects`} component={Projects} />
+          <Route path={`${path}/comments`} component={Comments} />
+          <Route path={`${path}/about`} component={About} />
+          <Redirect to="/404" />
+        </Switch>
+      </Main>
+      <Footer />
+    </BlogContainer>
+  );
+};
 
 Blog.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string,
+    isExact: PropTypes.bool,
   }).isRequired,
 };
 
