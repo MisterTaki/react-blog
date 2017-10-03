@@ -70,7 +70,7 @@ export default styled(Header)`
     top: 0;
     left: 0;
     width: 100%;
-    background-color: ${({ isHome }) => (isHome ? common.white : '')};
+    background-color: ${({ isExact }) => (isExact ? common.white : '')};
     box-shadow: 0 0 3px rgba(14, 14, 14, 0.26);
     z-index: ${zIndex.header};
   }
