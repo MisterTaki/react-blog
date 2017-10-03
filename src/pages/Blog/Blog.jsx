@@ -1,50 +1,80 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { Header, Main, Footer } from '@/components/Blog';
 import { blog } from '@/router';
 
-const Blog = ({ match, location, className }) => {
-  const { path, isExact } = match;
-  const { pathname } = location;
-  const blogRouter = blog(path);
+class Blog extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      path: PropTypes.string,
+      isExact: PropTypes.bool,
+    }).isRequired,
 
-  return (
-    <div className={className}>
-      <Header path={path} isExact={isExact} pathname={pathname} />
-      <Main>
-        <Switch>
-          {
-            Object.keys(blog(path)).map(item => (
-              <Route
-                key={item}
-                path={item}
-                component={blogRouter[item].component}
-                exact={blogRouter[item].isExact}
-              />
-            ))
-          }
-          <Redirect to="/404" />
-        </Switch>
-      </Main>
-      <Footer />
-    </div>
-  );
-};
+    location: PropTypes.shape({
+      pathname: PropTypes.string,
+    }).isRequired,
 
-Blog.propTypes = {
-  match: PropTypes.shape({
-    path: PropTypes.string,
-    isExact: PropTypes.bool,
-  }).isRequired,
+    className: PropTypes.string.isRequired,
+  }
 
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
+  constructor(props) {
+    super(props);
+    this.state = {
+      fixedHeader: false,
+    };
+  }
 
-  className: PropTypes.string.isRequired,
-};
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop > 60) {
+        this.setState({
+          fixedHeader: true,
+        });
+      } else if (scrollTop === 0) {
+        this.setState({
+          fixedHeader: false,
+        });
+      }
+    });
+  }
+
+  render() {
+    const { match, location, className } = this.props;
+    const { path, isExact } = match;
+    const { pathname } = location;
+    const router = blog(path);
+
+    return (
+      <div className={className}>
+        <Header
+          path={path}
+          isExact={isExact}
+          pathname={pathname}
+          fixedHeader={this.state.fixedHeader}
+        />
+        <Main>
+          <Switch>
+            {
+              Object.keys(blog(path)).map(item => (
+                <Route
+                  key={item}
+                  path={item}
+                  component={router[item].component}
+                  exact={router[item].isExact}
+                />
+              ))
+            }
+            <Redirect to="/404" />
+          </Switch>
+        </Main>
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default styled(Blog)`
   display: flex;
