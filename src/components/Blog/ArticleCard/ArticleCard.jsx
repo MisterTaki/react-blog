@@ -7,6 +7,7 @@ import { common, grey, orange } from '@/style/colors';
 
 const Wrapper = styled.article`
   padding: ${rem('10px')} 0;
+  margin: ${rem('10px')} 0;
 `;
 
 const TitleLink = styled(Link)`
@@ -14,11 +15,12 @@ const TitleLink = styled(Link)`
 `;
 
 const Title = styled.h2`
+  height: ${rem('42px')};
   font-size: ${rem('26px')};
   color: ${common.darkBlack};
 
   &:hover {
-    color: ${common.theme};
+    border-bottom: 2px solid ${common.theme};
   }
 `;
 
@@ -49,9 +51,15 @@ const Summary = styled.p`
 `;
 
 const More = styled(Link)`
+  display: inline-block;
   font-size: ${rem('14px')};
   font-weight: bold;
   color: ${common.theme};
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: translateX(10px);
+  }
 `;
 
 const ArticleCard = ({ title, date, tags, summary, link }) => (
