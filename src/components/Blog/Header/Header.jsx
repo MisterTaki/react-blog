@@ -72,7 +72,7 @@ export default styled(Header)`
     width: 100%;
     background-color: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? common.white : '')};
     box-shadow: ${({ isExact, fixedHeader }) => (isExact || fixedHeader ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
-    transition: background 0.4s;
+    transition: ${({ fixedHeader }) => (fixedHeader ? 'background 0.4s' : '')};
     z-index: ${zIndex.header};
   }
 
