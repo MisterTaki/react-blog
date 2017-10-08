@@ -25,7 +25,7 @@ export default function () {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Copyright>© 2017 | Gao Qi</Copyright>
+        <Copyright>© 2017 | Gao Qi.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );
