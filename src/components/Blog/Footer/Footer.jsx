@@ -5,7 +5,7 @@ import { grey } from '@/style/colors';
 
 const Footer = ({ className }) => (
   <footer className={className}>
-    <section className="header-wrapper">
+    <section className="footer-wrapper">
       <p className="copyright">© 2017 | Gao Qi.</p>
     </section>
   </footer>
