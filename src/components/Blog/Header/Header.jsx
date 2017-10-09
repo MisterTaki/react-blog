@@ -18,7 +18,7 @@ const Header = ({ path, isExact, pathname, className }) => {
   return (
     <header className={className}>
       <div className="fixed-container">
-        <section className="main-wrapper">
+        <section className="header-wrapper">
           <Link className="logo-link" to="path">
             <div className="logo" />
             <span className="logo-text">Blog</span>
@@ -51,7 +51,6 @@ Header.propTypes = {
   path: PropTypes.string.isRequired,
   isExact: PropTypes.bool.isRequired,
   pathname: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
 };
 
 export default styled(Header)`
@@ -76,7 +75,7 @@ export default styled(Header)`
     z-index: ${zIndex.header};
   }
 
-  .main-wrapper {
+  .header-wrapper {
     max-width: 1200px;
     height: ${rem('60px')};
     margin: 0 auto;

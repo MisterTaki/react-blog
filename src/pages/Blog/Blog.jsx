@@ -15,8 +15,6 @@ class Blog extends Component {
     location: PropTypes.shape({
       pathname: PropTypes.string,
     }).isRequired,
-
-    className: PropTypes.string.isRequired,
   }
 
   constructor(props) {

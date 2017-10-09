@@ -12,7 +12,6 @@ const Main = ({ children, className }) => (
 
 Main.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string.isRequired,
 };
 
 export default styled(Main)`

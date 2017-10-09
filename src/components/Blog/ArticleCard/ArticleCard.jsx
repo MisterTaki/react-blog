@@ -33,7 +33,6 @@ ArticleCard.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.object).isRequired,
   summary: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
 };
 
 export default styled(ArticleCard)`
