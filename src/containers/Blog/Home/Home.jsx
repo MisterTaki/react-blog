@@ -17,13 +17,43 @@ const Home = ({ className }) => {
     },
   ];
 
+  const data = [
+    {
+      id: '1',
+      title: '测试',
+      date: 'September 17, 2017',
+      tags,
+      summary: '测试内容',
+      link: '/blog/article/001',
+    },
+    {
+      id: '2',
+      title: '测试',
+      date: 'September 17, 2017',
+      tags,
+      summary: '测试内容',
+      link: '/blog/article/001',
+    },
+    {
+      id: '3',
+      title: '测试',
+      date: 'September 17, 2017',
+      tags,
+      summary: '测试内容',
+      link: '/blog/article/001',
+    },
+  ];
+
   return (
     <div className={className}>
-      <ArticleCard title="测试" date="September 17, 2017" tags={tags} summary="测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容" link="/blog/article/001" />
-      <ArticleCard title="测试" date="September 17, 2017" tags={tags} summary="测试内容" link="/blog/article/001" />
-      <ArticleCard title="测试" date="September 17, 2017" tags={tags} summary="测试内容" link="/blog/article/001" />
-      <ArticleCard title="测试" date="September 17, 2017" tags={tags} summary="测试内容" link="/blog/article/001" />
-      <ArticleCard title="测试" date="September 17, 2017" tags={tags} summary="测试内容" link="/blog/article/001" />
+      {
+        data.map((item) => {
+          const { id, ...props } = item;
+          return (
+            <ArticleCard key={id} {...props} />
+          );
+        })
+      }
     </div>
   );
 };
