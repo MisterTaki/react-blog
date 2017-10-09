@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import { Header, Main, Footer } from '@/components/Blog';
 import { blog } from '@/router';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 
 class Blog extends Component {
   static propTypes = {
