@@ -14,8 +14,9 @@ module.exports = {
   },
   // custom rules here
   rules: {
+    'max-len': 'warn',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
-    'max-len': 0,
+    "react/prop-types": ['warn', { ignore: ['className'] }],
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
   },
