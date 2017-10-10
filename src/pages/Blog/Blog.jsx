@@ -28,7 +28,8 @@ class Blog extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      // eslint-disable-next-line max-len
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       if (scrollTop > 60) {
         this.setState({
           fixedHeader: true,
