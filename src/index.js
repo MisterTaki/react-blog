@@ -9,7 +9,8 @@ const render = (Component) => {
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('blog'));
+    document.getElementById('blog'),
+  );
 };
 
 render(App);
