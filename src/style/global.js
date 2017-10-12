@@ -61,6 +61,14 @@ export default injectGlobal`
     }
   }
 
+  div[role="button"] {
+    &:focus,
+    &:active,
+    &:hover {
+      outline: 0;
+    }
+  }
+
   h1,
   h2,
   h3,
