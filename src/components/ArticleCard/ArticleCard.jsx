@@ -5,7 +5,14 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { common, grey, orange } from '@/style/colors';
 
-const ArticleCard = ({ title, date, tags, summary, link, className }) => (
+const ArticleCard = ({
+  title,
+  date,
+  tags,
+  summary,
+  link,
+  className,
+}) => (
   <div className={className}>
     <Link className="title-link" to={link}>
       <h1 className="title">{ title }</h1>
@@ -18,7 +25,9 @@ const ArticleCard = ({ title, date, tags, summary, link, className }) => (
             className="tag-link"
             key={item.id}
             to={item.link}
-          >{ item.value }</Link>
+          >
+            { item.value }
+          </Link>
         ))
       }
     </div>

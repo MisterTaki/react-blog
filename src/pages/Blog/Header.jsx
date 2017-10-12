@@ -9,7 +9,12 @@ import { zIndex } from '@/style/variables';
 import { blog } from '@/router';
 import logo from '@/assets/logo.png';
 
-const Header = ({ path, isExact, pathname, className }) => {
+const Header = ({
+  path,
+  isExact,
+  pathname,
+  className,
+}) => {
   const router = blog(path);
   const activeRouter = router[pathname];
   const title = activeRouter ? activeRouter.label : '';
@@ -31,7 +36,9 @@ const Header = ({ path, isExact, pathname, className }) => {
                   key={item}
                   to={item}
                   exact={router[item].isExact}
-                >{ router[item].label }</NavLink>
+                >
+                  { router[item].label }
+                </NavLink>
               ))
             }
           </nav>
