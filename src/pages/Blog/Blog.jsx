@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import { rem } from 'polished';
+import { BackTop } from '@/components';
 import { blog } from '@/router';
 import Header from './Header';
 import Main from './Main';
@@ -71,6 +73,7 @@ class Blog extends Component {
             <Redirect to="/404" />
           </Switch>
         </Main>
+        <BackTop className="back-top" />
         <Footer />
       </div>
     );
@@ -81,4 +84,10 @@ export default styled(Blog)`
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  .back-top {
+    position: fixed;
+    right: ${rem('32px')};
+    bottom: ${rem('45px')};
+  }
 `;
