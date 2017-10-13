@@ -29,7 +29,16 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    LoadingBar.error();
+    LoadingBar.start();
+    setTimeout(() => {
+      LoadingBar.error();
+    }, 2000);
+    setTimeout(() => {
+      LoadingBar.start();
+    }, 3000);
+    setTimeout(() => {
+      LoadingBar.success();
+    }, 4000);
     window.addEventListener('scroll', () => {
       // eslint-disable-next-line max-len
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
