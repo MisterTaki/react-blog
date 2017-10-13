@@ -61,15 +61,14 @@ class Blog extends Component {
         />
         <Main>
           <Switch>
-            { Object.keys(blog(path)).map(item => (
-                <Route
-                  key={item}
-                  path={item}
-                  component={router[item].component}
-                  exact={router[item].isExact}
-                />
-              ))
-            }
+            {Object.keys(blog(path)).map(item => (
+              <Route
+                key={item}
+                path={item}
+                component={router[item].component}
+                exact={router[item].isExact}
+              />
+            ))}
             <Redirect to="/404" />
           </Switch>
         </Main>
