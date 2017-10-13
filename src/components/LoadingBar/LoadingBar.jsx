@@ -1,40 +1,34 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { common, red } from '@/style/colors';
 import { zIndex } from '@/style/variables';
 
-class LoadingBar extends Component {
-  // static propTypes = {
-  //   height: PropTypes.number.isRequired, // eslint-disable-line react/no-unused-prop-types
-  //   status: PropTypes.string.isRequired, // eslint-disable-line react/no-unused-prop-types
-  // }
-  //
-  // static defaultProps = {
-  //   height: 4,
-  // };
+const LoadingBar = styled('div')`
+  position: fixed;
+  top: ${({ show, height }) => (show ? 0 : -height)}px;
+  left: 0;
+  width: ${({ percent }) => percent}%;
+  height: ${({ height }) => height}px;
+  background-color: ${({ status }) => (status === 'error' ? red[500] : common.theme)};
+  opacity: ${({ show }) => (show ? 1 : 0)};
+  transition: ${({ percent }) => (percent ? 'all 0.3s' : '')};
+  z-index: ${zIndex.loadingBar};
+`;
 
+export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // show: false,
+      show: false,
+      percent: 0,
+      status: 'start',
+      height: 2,
     };
   }
 
   render() {
-    const { className } = this.props;
-
     return (
-      <div className={className} />
+      <LoadingBar {...this.state} />
     );
   }
 }
-
-export default styled(LoadingBar)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: ${({ height }) => height}px;
-  background-color: ${({ status }) => (status === 'error' ? 'red' : 'blue')};
-  z-index: ${zIndex.loadingBar};
-`;

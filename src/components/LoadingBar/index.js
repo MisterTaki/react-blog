@@ -1,43 +1,70 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoadingBar from './LoadingBar.Wrapper';
+import LoadingBar from './LoadingBar';
 
 /* eslint-disable react/jsx-filename-extension, class-methods-use-this */
 export default new class {
   loadingBar;
+  timer = null;
+  percent = 0;
 
   constructor() {
     const div = document.createElement('div');
     document.body.appendChild(div);
     ReactDOM.render(
-      <LoadingBar
-        ref={(e) => { this.loadingBar = e; }}
-      />
-      , div,
+      <LoadingBar ref={(e) => { this.loadingBar = e; }} />,
+      div,
     );
+  }
+
+  clearTimer() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+
+  hide() {
+    window.setTimeout(() => {
+      this.loadingBar.setState({
+        show: false,
+      });
+    }, 500);
   }
 
   start() {
     this.loadingBar.setState({
+      show: true,
       status: 'start',
+      percent: 0,
     });
+    this.timer = setInterval(() => {
+      this.percent += Math.floor((Math.random() * 3) + 5);
+      if (this.percent > 95) {
+        this.clearTimer();
+      }
+      this.loadingBar.setState({
+        status: 'loading',
+        percent: this.percent,
+      });
+    }, 300);
   }
 
-  finish() {
+  success() {
+    this.clearTimer();
     this.loadingBar.setState({
-      status: 'finish',
+      status: 'success',
+      percent: 100,
     });
+    this.hide();
   }
 
   error() {
+    this.clearTimer();
     this.loadingBar.setState({
       status: 'error',
+      percent: 100,
     });
-  }
-
-  setHeight(height) {
-    this.loadingBar.setState({
-      height,
-    });
+    this.hide();
   }
 }();
