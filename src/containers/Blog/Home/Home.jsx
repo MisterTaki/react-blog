@@ -46,8 +46,7 @@ const Home = ({ className }) => {
 
   return (
     <div className={className}>
-      {
-        data.map((item) => {
+      { data.map((item) => {
           const { id, ...props } = item;
           return (
             <ArticleCard key={id} {...props} />

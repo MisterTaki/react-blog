@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { BackTop } from '@/components';
+import { BackTop, LoadingBar } from '@/components';
 import { blog } from '@/router';
 import Header from './Header';
 import Main from './Main';
@@ -29,6 +29,7 @@ class Blog extends Component {
   }
 
   componentDidMount() {
+    LoadingBar.error();
     window.addEventListener('scroll', () => {
       // eslint-disable-next-line max-len
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -60,8 +61,7 @@ class Blog extends Component {
         />
         <Main>
           <Switch>
-            {
-              Object.keys(blog(path)).map(item => (
+            { Object.keys(blog(path)).map(item => (
                 <Route
                   key={item}
                   path={item}

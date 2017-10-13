@@ -29,8 +29,7 @@ const Header = ({
             <span className="logo-text">Blog</span>
           </Link>
           <nav className="nav-list">
-            {
-              Object.keys(router).map(item => (
+            { Object.keys(router).map(item => (
                 <NavLink
                   className="nav-link"
                   key={item}
