@@ -57,7 +57,6 @@ export default class extends Component {
   getCurrentScrollTop = () => window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
   handleScroll = () => {
-    console.log(this.state.show);
     if (this.getCurrentScrollTop() > this.props.visibilityHeight) {
       if (!this.state.show) {
         this.setState({
