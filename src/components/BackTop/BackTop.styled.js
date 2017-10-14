@@ -1,13 +1,12 @@
-import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { common } from '@/style/colors';
 
-const DefaultChildren = ({ className }) => (
-  <span className={`${className} iconfont icon-top`} />
-);
+const BackTopWrapper = styled('div')`
+  cursor: pointer;
+`;
 
-export default styled(DefaultChildren)`
+const DefaultChildren = styled('span')`
   display: block;
   width: ${rem('40px')};
   height: ${rem('40px')};
@@ -26,3 +25,8 @@ export default styled(DefaultChildren)`
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.3);
   }
 `;
+
+export {
+  BackTopWrapper,
+  DefaultChildren,
+};

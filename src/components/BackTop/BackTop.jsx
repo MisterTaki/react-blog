@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import detectPassiveEvents from './detect-passive-events';
 import TweenFunctions from './tween-functions';
-import DefaultChildren from './DefaultChildren';
+import { BackTopWrapper, DefaultChildren } from './BackTop.styled';
 
-class BackTop extends Component {
+export default class extends Component {
   static propTypes = {
     children: PropTypes.node,
     visibilityHeight: PropTypes.number,
@@ -15,7 +14,7 @@ class BackTop extends Component {
   }
 
   static defaultProps = {
-    children: <DefaultChildren />,
+    children: <DefaultChildren className="iconfont icon-top" />,
     visibilityHeight: 400,
     topPosition: 0,
     duration: 450,
@@ -112,18 +111,14 @@ class BackTop extends Component {
     const { className, children } = this.props;
 
     return (
-      <div
+      <BackTopWrapper
         className={className}
         role="button"
         tabIndex="-1"
         onClick={this.handleClick}
       >
         { children }
-      </div>
+      </BackTopWrapper>
     );
   }
 }
-
-export default styled(BackTop)`
-  cursor: pointer;
-`;

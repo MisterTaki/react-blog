@@ -10,6 +10,7 @@ export default new class {
 
   constructor() {
     const div = document.createElement('div');
+    div.id = 'loading-bar';
     document.body.appendChild(div);
     ReactDOM.render(
       <LoadingBar ref={(e) => { this.ref = e; }} />,

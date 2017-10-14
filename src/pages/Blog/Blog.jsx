@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import styled from 'styled-components';
-import { rem } from 'polished';
-import { BackTop, LoadingBar } from '@/components';
 import { blog } from '@/router';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import {
+  BlogWrapper,
+  Header,
+  MainContainer,
+  MainWrapper,
+  Footer,
+  BackTop,
+} from './Blog.styled';
 
-class Blog extends Component {
+export default class extends Component {
   static propTypes = {
     match: PropTypes.shape({
       path: PropTypes.string,
@@ -23,79 +26,46 @@ class Blog extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      fixedHeader: false,
-    };
-  }
 
-  componentDidMount() {
-    LoadingBar.start();
-    setTimeout(() => {
-      LoadingBar.error();
-    }, 2000);
-    setTimeout(() => {
-      LoadingBar.start();
-    }, 3000);
-    setTimeout(() => {
-      LoadingBar.success();
-    }, 4000);
-    window.addEventListener('scroll', () => {
-      // eslint-disable-next-line max-len
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop > 60) {
-        this.setState({
-          fixedHeader: true,
-        });
-      } else if (scrollTop === 0) {
-        this.setState({
-          fixedHeader: false,
-        });
-      }
-    });
+    const div = document.createElement('div');
+    div.id = 'back-top';
+    document.body.appendChild(div);
+    ReactDOM.render(
+      <BackTop />,
+      div,
+    );
   }
 
   render() {
-    const { match, location, className } = this.props;
+    const { match, location } = this.props;
     const { path, isExact } = match;
     const { pathname } = location;
     const router = blog(path);
 
     return (
-      <div className={className}>
+      <BlogWrapper>
         <Header
           path={path}
           isExact={isExact}
           pathname={pathname}
-          fixedHeader={this.state.fixedHeader}
         />
-        <Main>
-          <Switch>
-            {Object.keys(blog(path)).map(item => (
-              <Route
-                key={item}
-                path={item}
-                component={router[item].component}
-                exact={router[item].isExact}
-              />
-            ))}
-            <Redirect to="/404" />
-          </Switch>
-        </Main>
-        <BackTop className="back-top" />
+        <MainContainer>
+          <MainWrapper>
+            <Switch>
+              {Object.keys(blog(path)).map(item => (
+                <Route
+                  key={item}
+                  path={item}
+                  component={router[item].component}
+                  exact={router[item].isExact}
+                />
+              ))}
+              <Redirect to="/404" />
+            </Switch>
+          </MainWrapper>
+        </MainContainer>
         <Footer />
-      </div>
+      </BlogWrapper>
     );
   }
 }
-
-export default styled(Blog)`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  .back-top {
-    position: fixed;
-    right: ${rem('32px')};
-    bottom: ${rem('45px')};
-  }
-`;
