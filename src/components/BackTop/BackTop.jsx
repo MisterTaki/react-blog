@@ -53,6 +53,7 @@ export default class extends Component {
     window.removeEventListener('wheel', this.stopScrolling, false);
     window.removeEventListener('touchstart', this.stopScrolling, false);
   }
+
   // eslint-disable-next-line max-len
   getCurrentScrollTop = () => window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
