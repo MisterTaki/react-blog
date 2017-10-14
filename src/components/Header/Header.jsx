@@ -25,7 +25,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fixedHeader: false,
+      fixed: false,
     };
   }
 
@@ -35,11 +35,11 @@ export default class extends Component {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       if (scrollTop > 60) {
         this.setState({
-          fixedHeader: true,
+          fixed: true,
         });
       } else if (scrollTop === 0) {
         this.setState({
-          fixedHeader: false,
+          fixed: false,
         });
       }
     });
@@ -58,18 +58,18 @@ export default class extends Component {
     const subTitle = activeRouter ? activeRouter.description : '';
 
     return (
-      <HeaderWrapper className={className} isHome={isExact}>
-        <FixedContainer isHome={isExact} fixedHeader={this.state.fixedHeader}>
+      <HeaderWrapper className={className} home={isExact}>
+        <FixedContainer home={isExact} fixed={this.state.fixed}>
           <NavWrapper>
             <LogoLink to={path}>
               <Logo />
-              <LogoText isHome={isExact} fixedHeader={this.state.fixedHeader}>Blog</LogoText>
+              <LogoText home={isExact} fixed={this.state.fixed}>Blog</LogoText>
             </LogoLink>
             <NavList>
               {Object.keys(router).map(item => (
                 <NavLink
-                  isHome={isExact}
-                  fixedHeader={this.state.fixedHeader}
+                  home={isExact ? 1 : 0}
+                  fixed={this.state.fixed ? 1 : 0}
                   key={item}
                   to={item}
                   exact={router[item].isExact}
