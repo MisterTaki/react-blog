@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { common } from '@/style/colors';
 
-const BackTopWrapper = styled('div')`
+const BackTopWrapper = styled.div`
   cursor: pointer;
 `;
 
-const DefaultChildren = styled('span')`
+const DefaultChildren = styled.span`
   display: block;
   width: ${rem('40px')};
   height: ${rem('40px')};

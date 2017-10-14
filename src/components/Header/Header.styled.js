@@ -6,28 +6,28 @@ import { common } from '@/style/colors';
 import { zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';
 
-const HeaderWrapper = styled('header')`
-  height: ${({ isHome }) => (isHome ? rem('60px') : '')};
-  padding: ${({ isHome }) => (isHome ? '' : '80px 20px 25px 20px')};
-  background-image: ${({ isHome }) => (isHome ? '' : geopattern.generate(window.location.href).toDataUrl())};
+const HeaderWrapper = styled.header`
+  height: ${({ home }) => (home ? rem('60px') : '')};
+  padding: ${({ home }) => (home ? '' : '80px 20px 25px 20px')};
+  background-image: ${({ home }) => (home ? '' : geopattern.generate(window.location.href).toDataUrl())};
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   text-align: center;
 `;
 
-const FixedContainer = styled('div')`
-  position: ${({ isHome, fixedHeader }) => (isHome || fixedHeader ? 'fixed' : 'absolute')};
+const FixedContainer = styled.div`
+  position: ${({ home, fixed }) => (home || fixed ? 'fixed' : 'absolute')};
   top: 0;
   left: 0;
   width: 100%;
-  background-color: ${({ isHome, fixedHeader }) => (isHome || fixedHeader ? common.white : '')};
-  box-shadow: ${({ isHome, fixedHeader }) => (isHome || fixedHeader ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
-  transition: ${({ fixedHeader }) => (fixedHeader ? 'background 0.4s' : '')};
+  background-color: ${({ home, fixed }) => (home || fixed ? common.white : '')};
+  box-shadow: ${({ home, fixed }) => (home || fixed ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
+  transition: ${({ fixed }) => (fixed ? 'background 0.4s' : '')};
   z-index: ${zIndex.header};
 `;
 
-const NavWrapper = styled('section')`
+const NavWrapper = styled.section`
   max-width: 1200px;
   height: ${rem('60px')};
   margin: 0 auto;
@@ -42,7 +42,7 @@ const LogoLink = styled(Link)`
   align-items: center;
 `;
 
-const Logo = styled('div')`
+const Logo = styled.div`
   height: ${rem('46px')};
   width: ${rem('46px')};
   margin-right: 6px;
@@ -50,12 +50,12 @@ const Logo = styled('div')`
   background-size: contain;
 `;
 
-const LogoText = styled('span')`
+const LogoText = styled.span`
   font-size: ${rem('24px')};
-  color: ${({ isHome, fixedHeader }) => (isHome || fixedHeader ? common.theme : common.white)};
+  color: ${({ home, fixed }) => (home || fixed ? common.theme : common.white)};
 `;
 
-const NavList = styled('nav')`
+const NavList = styled.nav`
   float: right;
   height: ${rem('60px')};
   display: flex;
@@ -68,7 +68,7 @@ const StyledNavLink = styled(NavLink)`
   line-height: ${'36px'};
   margin: 0 ${rem('10px')};
   font-size: ${rem('16px')};
-  color: ${({ isHome, fixedHeader }) => (isHome || fixedHeader ? common.darkBlack : common.white)};
+  color: ${({ home, fixed }) => (home || fixed ? common.darkBlack : common.white)};
 
   &:hover {
     border-bottom: 3px solid ${common.theme};
@@ -79,7 +79,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const TitleWrapper = styled('div')`
+const TitleWrapper = styled.div`
   position: relative;
 `;
 

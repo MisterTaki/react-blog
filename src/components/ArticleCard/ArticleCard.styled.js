@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { common, grey, orange } from '@/style/colors';
 
-const ArticleCardWrapper = styled('div')`
+const ArticleCardWrapper = styled.div`
   padding: ${rem('10px')} 0;
   margin: ${rem('10px')} 0;
 `;
@@ -12,7 +12,7 @@ const TitleLink = styled(Link)`
   display: inline-block;
 `;
 
-const Title = styled('h1')`
+const Title = styled.h1`
   height: ${rem('42px')};
   font-size: ${rem('26px')};
   color: ${common.darkBlack};
@@ -22,13 +22,13 @@ const Title = styled('h1')`
   }
 `;
 
-const Date = styled('p')`
+const Date = styled.p`
   margin: ${rem('10px')} 0;
   font-size: ${rem('14px')};
   color: ${grey[500]};
 `;
 
-const TagList = styled('div')`
+const TagList = styled.div`
   margin: ${rem('10px')} -${rem('5px')};
 `;
 
@@ -41,7 +41,7 @@ const TagLink = styled(Link)`
   color: ${orange[500]};
 `;
 
-const Summary = styled('p')`
+const Summary = styled.p`
   margin: ${rem('10px')} 0;
   font-size: ${rem('16px')};
   color: ${common.darkBlack};

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { Header, Footer, BackTop } from '@/components';
 
-const BlogWrapper = styled('div')`
+const BlogWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -13,12 +13,12 @@ const StyledHeader = styled(Header)`
   flex: 0 0 auto;
 `;
 
-const MainContainer = styled('main')`
+const MainContainer = styled.main`
   position: relative;
   flex: 1 0 auto;
 `;
 
-const MainWrapper = styled('div')`
+const MainWrapper = styled.div`
   max-width: 750px;
   margin: 0 auto;
 `;
