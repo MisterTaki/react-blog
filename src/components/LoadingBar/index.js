@@ -4,7 +4,7 @@ import LoadingBar from './LoadingBar';
 
 /* eslint-disable react/jsx-filename-extension, class-methods-use-this */
 export default new class {
-  loadingBar;
+  ref;
   timer = null;
   percent = 0;
 
@@ -12,7 +12,7 @@ export default new class {
     const div = document.createElement('div');
     document.body.appendChild(div);
     ReactDOM.render(
-      <LoadingBar ref={(e) => { this.loadingBar = e; }} />,
+      <LoadingBar ref={(e) => { this.ref = e; }} />,
       div,
     );
   }
@@ -26,14 +26,14 @@ export default new class {
 
   hide() {
     window.setTimeout(() => {
-      this.loadingBar.setState({
+      this.ref.setState({
         show: false,
       });
     }, 500);
   }
 
   start() {
-    this.loadingBar.setState({
+    this.ref.setState({
       show: true,
       status: 'start',
       percent: 0,
@@ -43,7 +43,7 @@ export default new class {
       if (this.percent > 95) {
         this.clearTimer();
       }
-      this.loadingBar.setState({
+      this.ref.setState({
         status: 'loading',
         percent: this.percent,
       });
@@ -52,7 +52,7 @@ export default new class {
 
   success() {
     this.clearTimer();
-    this.loadingBar.setState({
+    this.ref.setState({
       status: 'success',
       percent: 100,
     });
@@ -61,7 +61,7 @@ export default new class {
 
   error() {
     this.clearTimer();
-    this.loadingBar.setState({
+    this.ref.setState({
       status: 'error',
       percent: 100,
     });
