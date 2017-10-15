@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import { blog } from '@/router';
 import {
   HeaderWrapper,
@@ -9,7 +10,6 @@ import {
   Logo,
   LogoText,
   NavList,
-  NavLink,
   TitleWrapper,
   Title,
   SubTitle,
@@ -65,11 +65,10 @@ export default class extends Component {
               <Logo />
               <LogoText home={isExact} fixed={this.state.fixed}>Blog</LogoText>
             </LogoLink>
-            <NavList>
+            <NavList home={isExact} fixed={this.state.fixed}>
               {Object.keys(router).map(item => (
                 <NavLink
-                  home={isExact ? 1 : 0}
-                  fixed={this.state.fixed ? 1 : 0}
+                  className="nav-link"
                   key={item}
                   to={item}
                   exact={router[item].isExact}

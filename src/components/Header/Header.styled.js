@@ -1,5 +1,5 @@
 import geopattern from 'geopattern';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { rem, clearFix } from 'polished';
 import { common } from '@/style/colors';
@@ -60,22 +60,22 @@ const NavList = styled.nav`
   height: ${rem('60px')};
   display: flex;
   align-items: center;
-`;
 
-const StyledNavLink = styled(NavLink)`
-  display: block;
-  height: ${'36px'};
-  line-height: ${'36px'};
-  margin: 0 ${rem('10px')};
-  font-size: ${rem('16px')};
-  color: ${({ home, fixed }) => (home || fixed ? common.darkBlack : common.white)};
+  .nav-link {
+    display: block;
+    height: ${'36px'};
+    line-height: ${'36px'};
+    margin: 0 ${rem('10px')};
+    font-size: ${rem('16px')};
+    color: ${({ home, fixed }) => (home || fixed ? common.darkBlack : common.white)};
 
-  &:hover {
-    border-bottom: 3px solid ${common.theme};
-  }
+    &:hover {
+      border-bottom: 3px solid ${common.theme};
+    }
 
-  &.active {
-    border-bottom: 3px solid ${common.theme};
+    &.active {
+      border-bottom: 3px solid ${common.theme};
+    }
   }
 `;
 
@@ -103,7 +103,6 @@ export {
   Logo,
   LogoText,
   NavList,
-  StyledNavLink as NavLink,
   TitleWrapper,
   Title,
   SubTitle,
