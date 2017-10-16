@@ -15,7 +15,7 @@ export default class extends Component {
   }
 
   static defaultProps = {
-    children: <DefaultChildren className="iconfont icon-top" />,
+    children: <DefaultChildren />,
     visibilityHeight: 400,
     topPosition: 0,
     duration: 450,

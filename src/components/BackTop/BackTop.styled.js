@@ -10,7 +10,9 @@ const BackTopWrapper = styled.div`
   transform: translateX(${({ show }) => (show ? 0 : rem('80px'))});
 `;
 
-const DefaultChildren = styled.span`
+const DefaultChildren = styled.span.attrs({
+  className: 'iconfont icon-top',
+})`
   display: block;
   width: ${rem('40px')};
   height: ${rem('40px')};
