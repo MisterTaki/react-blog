@@ -1,8 +1,9 @@
 import geopattern from 'geopattern';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem, clearFix } from 'polished';
 
+import { media } from '@/style/mixins';
 import { common } from '@/style/colors';
 import { size, zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';
@@ -61,6 +62,9 @@ const NavList = styled.nav`
   height: ${rem(size.header)};
   display: flex;
   align-items: center;
+  ${media.phone(css`
+    display: none;
+  `)}
 
   .nav-link {
     display: block;
