@@ -1,3 +1,3 @@
 export default {
-  header: '60px',
+  header: 60,
 };
