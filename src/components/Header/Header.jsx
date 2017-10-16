@@ -11,6 +11,7 @@ import {
   LogoLink,
   Logo,
   LogoText,
+  NavIcon,
   NavList,
   TitleWrapper,
   Title,
@@ -28,6 +29,7 @@ export default class extends Component {
     super(props);
     this.state = {
       fixed: false,
+      showMenu: false,
     };
   }
 
@@ -35,7 +37,7 @@ export default class extends Component {
     window.addEventListener('scroll', () => {
       // eslint-disable-next-line max-len
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop > Number(size.header)) {
+      if (scrollTop > size.header) {
         this.setState({
           fixed: true,
         });
@@ -44,6 +46,12 @@ export default class extends Component {
           fixed: false,
         });
       }
+    });
+  }
+
+  toggleShowMenu = () => {
+    this.setState({
+      showMenu: !this.state.showMenu,
     });
   }
 
@@ -67,7 +75,14 @@ export default class extends Component {
               <Logo />
               <LogoText home={isExact} fixed={this.state.fixed}>Blog</LogoText>
             </LogoLink>
-            <NavList home={isExact} fixed={this.state.fixed}>
+            <NavIcon
+              showMenu={this.state.showMenu}
+              onClick={this.toggleShowMenu}
+            />
+            <NavList
+              home={isExact}
+              fixed={this.state.fixed}
+            >
               {Object.keys(router).map(item => (
                 <NavLink
                   className="nav-link"

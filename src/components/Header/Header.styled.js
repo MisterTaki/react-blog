@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { rem, clearFix } from 'polished';
 
 import { media } from '@/style/mixins';
-import { common } from '@/style/colors';
+import { common, grey } from '@/style/colors';
 import { size, zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';
 
@@ -30,6 +30,7 @@ const FixedContainer = styled.div`
 `;
 
 const NavWrapper = styled.section`
+  position: relative;
   max-width: 1200px;
   height: ${rem(size.header)};
   margin: 0 auto;
@@ -57,6 +58,23 @@ const LogoText = styled.span`
   color: ${({ home, fixed }) => (home || fixed ? common.theme : common.white)};
 `;
 
+const NavIcon = styled.div.attrs({
+  className: 'iconfont icon-nav',
+})`
+  display: none;
+  position: absolute;
+  top: ${rem((size.header - 24) / 2)};
+  right: ${rem((size.header - 24) / 2)};
+  width: ${rem('24px')};
+  height: ${rem('24px')};
+  font-size: ${rem('24px')};
+  line-height: ${rem('24px')};
+  color: ${grey[500]};
+  ${media.phone(css`
+    display: block;
+  `)}
+`;
+
 const NavList = styled.nav`
   float: right;
   height: ${rem(size.header)};
@@ -73,6 +91,9 @@ const NavList = styled.nav`
     margin: 0 ${rem('10px')};
     font-size: ${rem('16px')};
     color: ${({ home, fixed }) => (home || fixed ? common.darkBlack : common.white)};
+    ${media.phone(css`
+      width: 100%;
+    `)}
 
     &:hover {
       border-bottom: 3px solid ${common.theme};
@@ -107,6 +128,7 @@ export {
   LogoLink,
   Logo,
   LogoText,
+  NavIcon,
   NavList,
   TitleWrapper,
   Title,
