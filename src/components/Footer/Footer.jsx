@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FooterText, Copyright } from './Footer.styled';
 
 export default ({ className }) => (

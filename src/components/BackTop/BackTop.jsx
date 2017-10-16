@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import detectPassiveEvents from './detect-passive-events';
 import TweenFunctions from './tween-functions';
 import { BackTopWrapper, DefaultChildren } from './BackTop.styled';

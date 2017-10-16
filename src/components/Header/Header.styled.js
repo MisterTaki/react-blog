@@ -2,6 +2,7 @@ import geopattern from 'geopattern';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { rem, clearFix } from 'polished';
+
 import { common } from '@/style/colors';
 import { zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';

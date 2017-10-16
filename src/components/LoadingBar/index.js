@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import LoadingBar from './LoadingBar';
 
 /* eslint-disable react/jsx-filename-extension, class-methods-use-this */

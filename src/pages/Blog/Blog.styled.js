@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
+
 import { Header, Footer, BackTop } from '@/components';
 
 const BlogWrapper = styled.div`

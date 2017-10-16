@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
 import { common, red } from '@/style/colors';
 import { zIndex } from '@/style/variables';
 

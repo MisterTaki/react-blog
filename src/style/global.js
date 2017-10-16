@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+
 import { font } from './variables';
 import { common } from './colors';
 

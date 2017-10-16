@@ -1,4 +1,19 @@
-import { Home, Archives, Tags, Projects, Comments, About } from '@/containers/Blog';
+import {
+  Home,
+  Archives,
+  Tags,
+  Projects,
+  Comments,
+  About,
+} from '@/containers/Blog';
+
+// const Home = () => import('@/containers/Blog/Home/Home.jsx');
+// const Archives = () => import('@/containers/Blog/Archives');
+// const Tags = () => import('@/containers/Blog/Tags');
+// const Projects = () => import('@/containers/Blog/Projects');
+// const Comments = () => import('@/containers/Blog/Comments');
+// const About = () => import('@/containers/Blog/About');
+
 
 export default function (path) {
   return {

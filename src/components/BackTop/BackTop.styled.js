@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
+
 import { common } from '@/style/colors';
 
 const BackTopWrapper = styled.div`

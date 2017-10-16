@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
+
 import { grey } from '@/style/colors';
 
 const FooterText = styled.section`
