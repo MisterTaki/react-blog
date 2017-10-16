@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import { blog } from '@/router';
+import { size } from '@/style/variables';
 import {
   HeaderWrapper,
   FixedContainer,
@@ -34,7 +35,7 @@ export default class extends Component {
     window.addEventListener('scroll', () => {
       // eslint-disable-next-line max-len
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop > 60) {
+      if (scrollTop > Number(size.header)) {
         this.setState({
           fixed: true,
         });

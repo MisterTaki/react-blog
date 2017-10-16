@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import { rem, clearFix } from 'polished';
 
 import { common } from '@/style/colors';
-import { zIndex } from '@/style/variables';
+import { size, zIndex } from '@/style/variables';
 import logo from '@/assets/logo.png';
 
 const HeaderWrapper = styled.header`
-  height: ${({ home }) => (home ? rem('60px') : '')};
+  height: ${({ home }) => (home ? rem(size.header) : '')};
   padding: ${({ home }) => (home ? '' : '80px 20px 25px 20px')};
   background-image: ${({ home }) => (home ? '' : geopattern.generate(window.location.href).toDataUrl())};
   background-repeat: no-repeat;
@@ -30,7 +30,7 @@ const FixedContainer = styled.div`
 
 const NavWrapper = styled.section`
   max-width: 1200px;
-  height: ${rem('60px')};
+  height: ${rem(size.header)};
   margin: 0 auto;
   padding: 0 ${rem('10px')};
   ${clearFix()};
@@ -38,7 +38,7 @@ const NavWrapper = styled.section`
 
 const LogoLink = styled(Link)`
   float: left;
-  height: ${rem('60px')};
+  height: ${rem(size.header)};
   display: flex;
   align-items: center;
 `;
@@ -58,7 +58,7 @@ const LogoText = styled.span`
 
 const NavList = styled.nav`
   float: right;
-  height: ${rem('60px')};
+  height: ${rem(size.header)};
   display: flex;
   align-items: center;
 
