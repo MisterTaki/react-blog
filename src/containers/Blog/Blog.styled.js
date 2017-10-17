@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 
-import { Header, Footer, BackTop } from '@/components';
+import { Header, Footer } from '@/components/Blog';
+import { BackTop } from '@/components/Common';
 
 const BlogWrapper = styled.div`
   display: flex;

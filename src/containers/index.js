@@ -1,1 +1,2 @@
-export * as Blog from './Blog';
+export Blog from './Blog';
+export NotFound from './NotFound';

@@ -1,3 +1,5 @@
+export default from './Blog';
+
 export Home from './Home';
 export Archives from './Archives';
 export Tags from './Tags';
