@@ -80,17 +80,15 @@ const NavList = styled.nav`
   height: ${rem(size.header)};
   display: flex;
   align-items: center;
-  opacity: 1;
   ${media.phone(css`
-    position: absolute;
+    position: fixed;
     top: ${rem(size.header)};
     left: 0;
+    right: 0;
+    bottom: 0;
     float: none;
     display: block;
-    width: 100%;
     height: ${({ showMenu }) => (showMenu ? 'auto' : 0)};
-    box-shadow: 0 3px 3px rgba(14, 14, 14, 0.08);
-    opacity: ${({ showMenu }) => (showMenu ? 1 : 0)};
     transition: all 0.4s;
   `)}
 
@@ -112,12 +110,19 @@ const NavList = styled.nav`
 
     ${media.phone(css`
       width: 100%;
+      height: ${({ showMenu }) => (showMenu ? '' : 0)};
       margin: 0;
       background-color: ${common.white};
       color: ${common.darkBlack};
+      opacity: ${({ showMenu }) => (showMenu ? 1 : 0)};
+      transition: all 0.4s;
+
+      &:last-of-type {
+        box-shadow: 0 3px 3px rgba(14, 14, 14, 0.08);
+      }
 
       &:not(:last-of-type) {
-        border-bottom: 1px solid ${grey[100]};
+        border-bottom: ${({ showMenu }) => (showMenu ? `1px solid ${grey[100]}` : 'none')};
       }
 
       &:hover {
@@ -126,6 +131,7 @@ const NavList = styled.nav`
 
       &.active {
         color: ${common.theme};
+        border-bottom: ${({ showMenu }) => (showMenu ? `1px solid ${common.theme}` : 'none')};
       }
     `)}
   }

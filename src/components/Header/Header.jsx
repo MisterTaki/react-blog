@@ -68,7 +68,10 @@ export default class extends Component {
     const subTitle = activeRouter ? activeRouter.description : '';
 
     return (
-      <HeaderWrapper className={className} home={isExact}>
+      <HeaderWrapper
+        className={className}
+        home={isExact}
+      >
         <FixedContainer
           home={isExact}
           fixed={this.state.fixed}
@@ -95,6 +98,7 @@ export default class extends Component {
               home={isExact}
               fixed={this.state.fixed}
               showMenu={this.state.showMenu}
+              onClick={() => this.state.showMenu && this.toggleShowMenu()}
             >
               {Object.keys(router).map(item => (
                 <NavLink
@@ -102,7 +106,7 @@ export default class extends Component {
                   key={item}
                   to={item}
                   exact={router[item].isExact}
-                  onClick={this.toggleShowMenu}
+                  onClick={() => this.state.showMenu && this.toggleShowMenu()}
                 >
                   { router[item].label }
                 </NavLink>
