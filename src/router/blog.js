@@ -1,19 +1,53 @@
-import {
-  Home,
-  Archives,
-  Tags,
-  Projects,
-  Comments,
-  About,
-} from '@/containers/Blog';
+import React from 'react';
 
-// const Home = () => import('@/containers/Blog/Home/Home.jsx');
-// const Archives = () => import('@/containers/Blog/Archives');
-// const Tags = () => import('@/containers/Blog/Tags');
-// const Projects = () => import('@/containers/Blog/Projects');
-// const Comments = () => import('@/containers/Blog/Comments');
-// const About = () => import('@/containers/Blog/About');
+import { Bundle } from '@/components/Common';
 
+/* eslint-disable import/no-webpack-loader-syntax, react/jsx-filename-extension, no-shadow */
+
+// https://reacttraining.com/react-router/web/guides/code-splitting
+import loadHome from 'bundle-loader?lazy!@/containers/Blog/Home';
+import loadArchives from 'bundle-loader?lazy!@/containers/Blog/Archives';
+import loadTags from 'bundle-loader?lazy!@/containers/Blog/Tags';
+import loadProjects from 'bundle-loader?lazy!@/containers/Blog/Projects';
+import loadComments from 'bundle-loader?lazy!@/containers/Blog/Comments';
+import loadAbout from 'bundle-loader?lazy!@/containers/Blog/About';
+
+// components load their module for initial visit
+const Home = props => (
+  <Bundle load={loadHome}>
+    {Home => <Home {...props} />}
+  </Bundle>
+);
+
+const Archives = props => (
+  <Bundle load={loadArchives}>
+    {Archives => <Archives {...props} />}
+  </Bundle>
+);
+
+const Tags = props => (
+  <Bundle load={loadTags}>
+    {Tags => <Tags {...props} />}
+  </Bundle>
+);
+
+const Projects = props => (
+  <Bundle load={loadProjects}>
+    {Projects => <Projects {...props} />}
+  </Bundle>
+);
+
+const Comments = props => (
+  <Bundle load={loadComments}>
+    {Comments => <Comments {...props} />}
+  </Bundle>
+);
+
+const About = props => (
+  <Bundle load={loadAbout}>
+    {About => <About {...props} />}
+  </Bundle>
+);
 
 export default function (path) {
   return {
