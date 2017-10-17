@@ -69,19 +69,32 @@ export default class extends Component {
 
     return (
       <HeaderWrapper className={className} home={isExact}>
-        <FixedContainer home={isExact} fixed={this.state.fixed}>
+        <FixedContainer
+          home={isExact}
+          fixed={this.state.fixed}
+          showMenu={this.state.showMenu}
+        >
           <NavWrapper>
             <LogoLink to={path}>
               <Logo />
-              <LogoText home={isExact} fixed={this.state.fixed}>Blog</LogoText>
+              <LogoText
+                home={isExact}
+                fixed={this.state.fixed}
+                showMenu={this.state.showMenu}
+              >
+                Blog
+              </LogoText>
             </LogoLink>
             <NavIcon
+              home={isExact}
+              fixed={this.state.fixed}
               showMenu={this.state.showMenu}
               onClick={this.toggleShowMenu}
             />
             <NavList
               home={isExact}
               fixed={this.state.fixed}
+              showMenu={this.state.showMenu}
             >
               {Object.keys(router).map(item => (
                 <NavLink
@@ -89,6 +102,7 @@ export default class extends Component {
                   key={item}
                   to={item}
                   exact={router[item].isExact}
+                  onClick={this.toggleShowMenu}
                 >
                   { router[item].label }
                 </NavLink>

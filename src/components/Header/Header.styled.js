@@ -23,7 +23,7 @@ const FixedContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  background-color: ${({ home, fixed }) => (home || fixed ? common.white : '')};
+  background-color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.white : '')};
   box-shadow: ${({ home, fixed }) => (home || fixed ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
   transition: ${({ fixed }) => (fixed ? 'background 0.4s' : '')};
   z-index: ${zIndex.header};
@@ -55,7 +55,7 @@ const Logo = styled.div`
 
 const LogoText = styled.span`
   font-size: ${rem('24px')};
-  color: ${({ home, fixed }) => (home || fixed ? common.theme : common.white)};
+  color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.theme : common.white)};
 `;
 
 const NavIcon = styled.div.attrs({
@@ -69,7 +69,7 @@ const NavIcon = styled.div.attrs({
   height: ${rem('24px')};
   font-size: ${rem('24px')};
   line-height: ${rem('24px')};
-  color: ${grey[500]};
+  color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.darkBlack : common.white)};
   ${media.phone(css`
     display: block;
   `)}
@@ -80,8 +80,18 @@ const NavList = styled.nav`
   height: ${rem(size.header)};
   display: flex;
   align-items: center;
+  opacity: 1;
   ${media.phone(css`
-    display: none;
+    position: absolute;
+    top: ${rem(size.header)};
+    left: 0;
+    float: none;
+    display: block;
+    width: 100%;
+    height: ${({ showMenu }) => (showMenu ? 'auto' : 0)};
+    box-shadow: 0 3px 3px rgba(14, 14, 14, 0.08);
+    opacity: ${({ showMenu }) => (showMenu ? 1 : 0)};
+    transition: all 0.4s;
   `)}
 
   .nav-link {
@@ -91,9 +101,6 @@ const NavList = styled.nav`
     margin: 0 ${rem('10px')};
     font-size: ${rem('16px')};
     color: ${({ home, fixed }) => (home || fixed ? common.darkBlack : common.white)};
-    ${media.phone(css`
-      width: 100%;
-    `)}
 
     &:hover {
       border-bottom: 3px solid ${common.theme};
@@ -102,6 +109,25 @@ const NavList = styled.nav`
     &.active {
       border-bottom: 3px solid ${common.theme};
     }
+
+    ${media.phone(css`
+      width: 100%;
+      margin: 0;
+      background-color: ${common.white};
+      color: ${common.darkBlack};
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid ${grey[100]};
+      }
+
+      &:hover {
+        border-bottom: none;
+      }
+
+      &.active {
+        color: ${common.theme};
+      }
+    `)}
   }
 `;
 
