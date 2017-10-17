@@ -1,5 +1,6 @@
-import { injectGlobal } from 'styled-components';
+import { injectGlobal, css } from 'styled-components';
 
+import { media } from './mixins';
 import { font } from './variables';
 import { common } from './colors';
 
@@ -20,9 +21,15 @@ export default injectGlobal`
   }
 
   html {
-    font-size: ${font.htmlFontSize};
+    font-size: ${font.fontSize.pc};
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    ${media.pad(css`
+      font-size: ${font.fontSize.pad};
+    `)}
+    ${media.phone(css`
+      font-size: ${font.fontSize.phone};
+    `)}
   }
 
   body {
@@ -30,7 +37,7 @@ export default injectGlobal`
     margin: 0;
     background: ${common.white};
     font-family: ${font.fontFamily};
-    font-size: ${font.fontSize};
+    font-size: ${font.fontSize.body};
     font-weight: ${font.fontWeight};
     line-height: ${font.lineHeight};
     color: ${common.black};
