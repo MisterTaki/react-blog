@@ -1,10 +1,10 @@
-import React from 'react';
-
-import { Bundle } from '@/components/Common';
+// https://reacttraining.com/react-router/web/guides/code-splitting
 
 /* eslint-disable import/no-webpack-loader-syntax, react/jsx-filename-extension, no-shadow */
 
-// https://reacttraining.com/react-router/web/guides/code-splitting
+import React from 'react';
+import { Bundle } from '@/components/Common';
+
 import loadHome from 'bundle-loader?lazy!@/containers/Blog/Home';
 import loadArchives from 'bundle-loader?lazy!@/containers/Blog/Archives';
 import loadTags from 'bundle-loader?lazy!@/containers/Blog/Tags';
