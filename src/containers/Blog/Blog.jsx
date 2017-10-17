@@ -53,7 +53,7 @@ export default class extends Component {
         <MainContainer>
           <MainWrapper>
             <Switch>
-              {Object.keys(blog(path)).map(item => (
+              {Object.keys(router).map(item => (
                 <Route
                   key={item}
                   path={item}
