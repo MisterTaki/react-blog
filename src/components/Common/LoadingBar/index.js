@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import LoadingBar from './LoadingBar';
 
-/* eslint-disable react/jsx-filename-extension, class-methods-use-this */
+/* eslint-disable react/jsx-filename-extension */
 export default new class {
   ref;
   timer = null;
