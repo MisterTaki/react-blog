@@ -59,5 +59,5 @@ const Home = ({ className }) => {
 };
 
 export default styled(Home)`
-  padding: 0 ${rem('10px')};
+  padding: 0 ${rem('16px')};
 `;
