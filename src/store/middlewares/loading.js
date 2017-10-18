@@ -3,7 +3,7 @@
 import { LoadingBar } from '@/components/Common';
 import { startLoading, successLoading, errorLoading } from '@/store/modules/loading';
 
-const defaultTypeSuffixes = ['START', 'SUCCESS', 'ERROR'];
+const defaultTypeSuffixes = ['REQUEST', 'SUCCESS', 'ERROR'];
 
 export default function (config = {}) {
   const promiseTypeSuffixes = config.typeSuffixes || defaultTypeSuffixes;
@@ -12,9 +12,9 @@ export default function (config = {}) {
     if (action.type) {
       const [START, SUCCESS, ERROR] = promiseTypeSuffixes;
 
-      const isStart = new RegExp(`${START}$`, 'g');
-      const isSuccess = new RegExp(`${SUCCESS}$`, 'g');
-      const isError = new RegExp(`${ERROR}$`, 'g');
+      const isStart = new RegExp(`_${START}$`, 'g');
+      const isSuccess = new RegExp(`_${SUCCESS}$`, 'g');
+      const isError = new RegExp(`_${ERROR}$`, 'g');
 
       if (action.type.match(isStart)) {
         LoadingBar.start();
