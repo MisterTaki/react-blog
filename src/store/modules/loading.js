@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action = {}) {
-  switch (action.status) {
+  switch (action.type) {
     case START:
       return {
         ...state,
@@ -30,18 +30,18 @@ export default function (state = initialState, action = {}) {
 
 export function startLoading() {
   return {
-    status: START,
+    type: START,
   };
 }
 
 export function successLoading() {
   return {
-    status: SUCCESS,
+    type: SUCCESS,
   };
 }
 
 export function errorLoading() {
   return {
-    status: ERROR,
+    type: ERROR,
   };
 }
