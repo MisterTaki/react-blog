@@ -1,6 +1,8 @@
 // http://redux.js.org/docs/recipes/ReducingBoilerplate.html
 
-export default function (client) {
+import { client } from '@/service';
+
+export default function () {
   return ({ dispatch, getState }) => next => (action) => {
     if (typeof action === 'function') {
       return action(dispatch, getState);
