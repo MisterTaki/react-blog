@@ -10,7 +10,8 @@ const LoadingBar = styled('div')`
   left: 0;
   width: ${({ percent }) => percent}%;
   height: ${({ height }) => height}px;
-  background-color: ${({ status }) => (status === 'error' ? red[500] : common.theme)};
+  background-color: ${({ status }) =>
+    (status === 'error' ? red[500] : common.theme)};
   opacity: ${({ show }) => (show ? 1 : 0)};
   transition: ${({ percent }) => (percent ? 'all 0.3s' : '')};
   z-index: ${zIndex.loadingBar};

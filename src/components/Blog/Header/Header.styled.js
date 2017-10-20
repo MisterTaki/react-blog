@@ -11,7 +11,8 @@ import logo from '@/assets/logo.png';
 const HeaderWrapper = styled.header`
   height: ${({ home }) => (home ? rem(size.header) : '')};
   padding: ${({ home }) => (home ? '' : '80px 20px 25px 20px')};
-  background-image: ${({ home }) => (home ? '' : geopattern.generate(window.location.href).toDataUrl())};
+  background-image: ${({ home }) =>
+    (home ? '' : geopattern.generate(window.location.href).toDataUrl())};
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -23,8 +24,10 @@ const FixedContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  background-color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.white : '')};
-  box-shadow: ${({ home, fixed }) => (home || fixed ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
+  background-color: ${({ home, fixed, showMenu }) =>
+    (home || fixed || showMenu ? common.white : '')};
+  box-shadow: ${({ home, fixed }) =>
+    (home || fixed ? '0 0 3px rgba(14, 14, 14, 0.26)' : '')};
   transition: ${({ fixed }) => (fixed ? 'background 0.4s' : '')};
   z-index: ${zIndex.header};
 `;
@@ -55,7 +58,8 @@ const Logo = styled.div`
 
 const LogoText = styled.span`
   font-size: ${rem('24px')};
-  color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.theme : common.white)};
+  color: ${({ home, fixed, showMenu }) =>
+    (home || fixed || showMenu ? common.theme : common.white)};
 `;
 
 const NavIcon = styled.div.attrs({
@@ -69,7 +73,8 @@ const NavIcon = styled.div.attrs({
   height: ${rem('24px')};
   font-size: ${rem('24px')};
   line-height: ${rem('24px')};
-  color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.darkBlack : common.white)};
+  color: ${({ home, fixed, showMenu }) =>
+    (home || fixed || showMenu ? common.darkBlack : common.white)};
   ${media.phone(css`
     display: block;
   `)};
@@ -90,9 +95,7 @@ const NavList = styled.nav`
     display: block;
     height: ${({ showMenu }) => (showMenu ? 'auto' : 0)};
     transition: all 0.4s;
-  `)}
-
-  .nav-link {
+  `)} .nav-link {
     display: block;
     height: ${'36px'};
     line-height: ${'36px'};
@@ -137,9 +140,7 @@ const NavList = styled.nav`
   }
 `;
 
-const TitleWrapper = styled.div`
-  position: relative;
-`;
+const TitleWrapper = styled.div`position: relative;`;
 
 const Title = styled('h2')`
   font-size: ${rem('36px')};
