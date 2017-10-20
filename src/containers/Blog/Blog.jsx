@@ -23,7 +23,7 @@ export default class extends Component {
     location: PropTypes.shape({
       pathname: PropTypes.string,
     }).isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -31,10 +31,7 @@ export default class extends Component {
     const div = document.createElement('div');
     div.id = 'back-top';
     document.body.appendChild(div);
-    ReactDOM.render(
-      <BackTop />,
-      div,
-    );
+    ReactDOM.render(<BackTop />, div);
   }
 
   render() {
@@ -45,11 +42,7 @@ export default class extends Component {
 
     return (
       <BlogWrapper>
-        <Header
-          path={path}
-          isExact={isExact}
-          pathname={pathname}
-        />
+        <Header path={path} isExact={isExact} pathname={pathname} />
         <MainContainer>
           <MainWrapper>
             <Switch>

@@ -14,39 +14,27 @@ import loadAbout from 'bundle-loader?lazy!@/containers/Blog/About';
 
 // components load their module for initial visit
 const Home = props => (
-  <Bundle load={loadHome}>
-    {Home => <Home {...props} />}
-  </Bundle>
+  <Bundle load={loadHome}>{Home => <Home {...props} />}</Bundle>
 );
 
 const Archives = props => (
-  <Bundle load={loadArchives}>
-    {Archives => <Archives {...props} />}
-  </Bundle>
+  <Bundle load={loadArchives}>{Archives => <Archives {...props} />}</Bundle>
 );
 
 const Tags = props => (
-  <Bundle load={loadTags}>
-    {Tags => <Tags {...props} />}
-  </Bundle>
+  <Bundle load={loadTags}>{Tags => <Tags {...props} />}</Bundle>
 );
 
 const Projects = props => (
-  <Bundle load={loadProjects}>
-    {Projects => <Projects {...props} />}
-  </Bundle>
+  <Bundle load={loadProjects}>{Projects => <Projects {...props} />}</Bundle>
 );
 
 const Comments = props => (
-  <Bundle load={loadComments}>
-    {Comments => <Comments {...props} />}
-  </Bundle>
+  <Bundle load={loadComments}>{Comments => <Comments {...props} />}</Bundle>
 );
 
 const About = props => (
-  <Bundle load={loadAbout}>
-    {About => <About {...props} />}
-  </Bundle>
+  <Bundle load={loadAbout}>{About => <About {...props} />}</Bundle>
 );
 
 export default function (path) {

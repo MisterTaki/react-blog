@@ -14,7 +14,11 @@ export default new class {
     div.id = 'loading-bar';
     document.body.appendChild(div);
     ReactDOM.render(
-      <LoadingBar ref={(e) => { this.ref = e; }} />,
+      <LoadingBar
+        ref={(e) => {
+          this.ref = e;
+        }}
+      />,
       div,
     );
   }
@@ -41,7 +45,7 @@ export default new class {
       percent: 0,
     });
     this.timer = setInterval(() => {
-      this.percent += Math.floor((Math.random() * 3) + 5);
+      this.percent += Math.floor(Math.random() * 3 + 5); // eslint-disable-line no-mixed-operators
       if (this.percent > 95) {
         this.clearTimer();
       }

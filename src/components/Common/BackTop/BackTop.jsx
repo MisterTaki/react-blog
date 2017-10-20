@@ -12,7 +12,7 @@ export default class extends Component {
     topPosition: PropTypes.number,
     duration: PropTypes.number,
     easing: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     children: <DefaultChildren />,
@@ -40,8 +40,16 @@ export default class extends Component {
 
     // Add all listeners which can start scroll
     window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('wheel', this.stopScrolling, detectPassiveEvents.hasSupport ? { passive: true } : false);
-    window.addEventListener('touchstart', this.stopScrolling, detectPassiveEvents.hasSupport ? { passive: true } : false);
+    window.addEventListener(
+      'wheel',
+      this.stopScrolling,
+      detectPassiveEvents.hasSupport ? { passive: true } : false,
+    );
+    window.addEventListener(
+      'touchstart',
+      this.stopScrolling,
+      detectPassiveEvents.hasSupport ? { passive: true } : false,
+    );
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -56,7 +64,10 @@ export default class extends Component {
   }
 
   // eslint-disable-next-line max-len
-  getCurrentScrollTop = () => window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  getCurrentScrollTop = () =>
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop;
 
   handleScroll = () => {
     if (this.getCurrentScrollTop() > this.props.visibilityHeight) {
@@ -70,7 +81,7 @@ export default class extends Component {
         show: false,
       });
     }
-  }
+  };
 
   scrollStep = (timestamp) => {
     if (!this.data.startTime) {
@@ -93,13 +104,13 @@ export default class extends Component {
       document.documentElement.scrollTop = position;
       this.data.rafId = window.requestAnimationFrame(this.scrollStep);
     }
-  }
+  };
 
   stopScrolling = () => {
     if (this.data.rafId) {
       window.cancelAnimationFrame(this.data.rafId);
     }
-  }
+  };
 
   handleClick = () => {
     this.stopScrolling();
@@ -107,7 +118,7 @@ export default class extends Component {
     this.data.currentTime = 0;
     this.data.startTime = null;
     this.data.rafId = window.requestAnimationFrame(this.scrollStep);
-  }
+  };
 
   render() {
     const { className, children } = this.props;
@@ -120,7 +131,7 @@ export default class extends Component {
         tabIndex="-1"
         onClick={this.handleClick}
       >
-        { children }
+        {children}
       </BackTopWrapper>
     );
   }

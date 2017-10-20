@@ -1,11 +1,16 @@
 // adapted from https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
 const detectPassiveEvents = {
   update() {
-    if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.addEventListener === 'function'
+    ) {
       let passive = false;
       const options = Object.defineProperty({}, 'passive', {
         // eslint-disable-next-line getter-return
-        get() { passive = true; },
+        get() {
+          passive = true;
+        },
       });
       // note: have to set and remove a no-op listener instead of null
       // (which was used previously), becasue Edge v15 throws an error

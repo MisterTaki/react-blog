@@ -16,7 +16,4 @@ const Copyright = styled.p`
   color: ${grey[400]};
 `;
 
-export {
-  FooterText,
-  Copyright,
-};
+export { FooterText, Copyright };

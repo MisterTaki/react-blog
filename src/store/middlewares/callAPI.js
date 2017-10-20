@@ -9,10 +9,7 @@ export default function () {
     }
 
     const {
-      types,
-      callAPI,
-      shouldCallAPI = () => true,
-      payload = {},
+      types, callAPI, shouldCallAPI = () => true, payload = {},
     } = action;
 
     if (!types) {
@@ -42,16 +39,17 @@ export default function () {
       type: requestType,
     }));
 
-    return (
-      callAPI(client).then(response =>
+    return callAPI(client).then(
+      response =>
         dispatch(Object.assign({}, payload, {
           response,
           type: successType,
-        })), error =>
+        })),
+      error =>
         dispatch(Object.assign({}, payload, {
           error,
           type: failureType,
-        })))
+        })),
     );
   };
 }

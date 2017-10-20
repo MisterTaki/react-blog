@@ -13,31 +13,21 @@ import {
 } from './ArticleCard.styled';
 
 const ArticleCard = ({
-  title,
-  date,
-  tags,
-  summary,
-  link,
-  className,
+  title, date, tags, summary, link, className,
 }) => (
   <ArticleCardWrapper className={className}>
     <TitleLink to={link}>
-      <Title>{ title }</Title>
+      <Title>{title}</Title>
     </TitleLink>
-    <Date>{ date }</Date>
+    <Date>{date}</Date>
     <TagList>
-      {
-        tags.map(item => (
-          <TagLink
-            key={item.id}
-            to={item.link}
-          >
-            { item.value }
-          </TagLink>
-        ))
-      }
+      {tags.map(item => (
+        <TagLink key={item.id} to={item.link}>
+          {item.value}
+        </TagLink>
+      ))}
     </TagList>
-    <Summary>{ summary }</Summary>
+    <Summary>{summary}</Summary>
     <MoreLink to={link}>Read More</MoreLink>
   </ArticleCardWrapper>
 );

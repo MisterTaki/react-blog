@@ -31,7 +31,4 @@ const DefaultChildren = styled.span.attrs({
   }
 `;
 
-export {
-  BackTopWrapper,
-  DefaultChildren,
-};
+export { BackTopWrapper, DefaultChildren };
