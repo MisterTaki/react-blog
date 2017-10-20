@@ -14,7 +14,7 @@ module.exports = {
   },
   // custom rules here
   rules: {
-    'max-len': 'warn',
+    'max-len': 'off',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/prop-types': ['warn', { ignore: ['className'] }],
     'jsx-a11y/anchor-is-valid': 'off',
