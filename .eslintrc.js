@@ -19,7 +19,5 @@ module.exports = {
     'react/prop-types': ['warn', { ignore: ['className'] }],
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    // 'jsx-a11y/href-no-hash': 'off',
-    // 'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
   },
 };
