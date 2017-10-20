@@ -47,13 +47,10 @@ const Home = ({ className }) => {
 
   return (
     <div className={className}>
-      { data.map((item) => {
-          const { id, ...props } = item;
-          return (
-            <ArticleCard key={id} {...props} />
-          );
-        })
-      }
+      {data.map((item) => {
+        const { id, ...props } = item;
+        return <ArticleCard key={id} {...props} />;
+      })}
     </div>
   );
 };

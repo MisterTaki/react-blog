@@ -28,8 +28,6 @@ export default class extends Component {
   }
 
   render() {
-    return (
-      <LoadingBar {...this.state} />
-    );
+    return <LoadingBar {...this.state} />;
   }
 }

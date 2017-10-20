@@ -72,7 +72,7 @@ const NavIcon = styled.div.attrs({
   color: ${({ home, fixed, showMenu }) => (home || fixed || showMenu ? common.darkBlack : common.white)};
   ${media.phone(css`
     display: block;
-  `)}
+  `)};
 `;
 
 const NavList = styled.nav`
@@ -133,7 +133,7 @@ const NavList = styled.nav`
         color: ${common.theme};
         border-bottom: ${({ showMenu }) => (showMenu ? `1px solid ${common.theme}` : 'none')};
       }
-    `)}
+    `)};
   }
 `;
 

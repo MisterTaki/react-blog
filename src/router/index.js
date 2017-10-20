@@ -10,15 +10,11 @@ import loadNotFound from 'bundle-loader?lazy!@/containers/NotFound';
 
 // components load their module for initial visit
 const Blog = props => (
-  <Bundle load={loadBlog}>
-    {Blog => <Blog {...props} />}
-  </Bundle>
+  <Bundle load={loadBlog}>{Blog => <Blog {...props} />}</Bundle>
 );
 
 const NotFound = props => (
-  <Bundle load={loadNotFound}>
-    {NotFound => <NotFound {...props} />}
-  </Bundle>
+  <Bundle load={loadNotFound}>{NotFound => <NotFound {...props} />}</Bundle>
 );
 
 export default [

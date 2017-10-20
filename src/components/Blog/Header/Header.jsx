@@ -23,7 +23,7 @@ export default class extends Component {
     path: PropTypes.string.isRequired,
     isExact: PropTypes.bool.isRequired,
     pathname: PropTypes.string.isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -36,7 +36,11 @@ export default class extends Component {
   componentDidMount() {
     window.addEventListener('scroll', () => {
       // eslint-disable-next-line max-len
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+
       if (scrollTop > size.header) {
         this.setState({
           fixed: true,
@@ -53,14 +57,11 @@ export default class extends Component {
     this.setState({
       showMenu: !this.state.showMenu,
     });
-  }
+  };
 
   render() {
     const {
-      path,
-      isExact,
-      pathname,
-      className,
+      path, isExact, pathname, className,
     } = this.props;
     const router = blog(path);
     const activeRouter = router[pathname];
@@ -68,10 +69,7 @@ export default class extends Component {
     const subTitle = activeRouter ? activeRouter.description : '';
 
     return (
-      <HeaderWrapper
-        className={className}
-        home={isExact}
-      >
+      <HeaderWrapper className={className} home={isExact}>
         <FixedContainer
           home={isExact}
           fixed={this.state.fixed}
@@ -108,18 +106,18 @@ export default class extends Component {
                   exact={router[item].isExact}
                   onClick={() => this.state.showMenu && this.toggleShowMenu()}
                 >
-                  { router[item].label }
+                  {router[item].label}
                 </NavLink>
               ))}
             </NavList>
           </NavWrapper>
         </FixedContainer>
-        {!isExact &&
+        {!isExact && (
           <TitleWrapper>
-            <Title>{ title }</Title>
-            <SubTitle>{ subTitle }</SubTitle>
+            <Title>{title}</Title>
+            <SubTitle>{subTitle}</SubTitle>
           </TitleWrapper>
-        }
+        )}
       </HeaderWrapper>
     );
   }
