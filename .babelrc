@@ -1,7 +1,8 @@
 {
   "presets": [
     [
-      "env", {
+      "env",
+      {
         "modules": false,
         "targets": {
           "browsers": ["> 1%", "last 4 versions", "not ie < 9"]
@@ -11,5 +12,10 @@
     "react",
     "stage-0"
   ],
-  "plugins": ["react-hot-loader/babel", "transform-runtime", "styled-components", "polished"]
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-runtime",
+    "styled-components",
+    "polished"
+  ]
 }
