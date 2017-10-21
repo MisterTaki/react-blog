@@ -1,6 +1,8 @@
 // https://reacttraining.com/react-router/web/guides/code-splitting
 
-/* eslint-disable import/no-webpack-loader-syntax, react/jsx-filename-extension, no-shadow */
+/* eslint-disable
+  import/no-webpack-loader-syntax, react/jsx-filename-extension, no-shadow
+*/
 
 import React from 'react';
 import { Bundle } from '@/components/Common';
