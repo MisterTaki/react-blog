@@ -45,7 +45,7 @@ export default new class {
       percent: 0,
     });
     this.timer = setInterval(() => {
-      this.percent += Math.floor(Math.random() * 3 + 5); // eslint-disable-line no-mixed-operators
+      this.percent += Math.floor(Math.random() * 3 + 5);
       if (this.percent > 95) {
         this.clearTimer();
       }

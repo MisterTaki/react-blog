@@ -21,6 +21,7 @@ module.exports = {
       ignoreStrings: true,
       ignoreTemplateLiterals: true,
     }],
+    'no-mixed-operators': 'off',
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/prop-types': ['warn', { ignore: ['className'] }],
     'jsx-a11y/anchor-is-valid': 'off',
